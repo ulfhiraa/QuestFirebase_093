@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "488973296706",
+    "project_id": "fir-pam-5a64d",
+    "storage_bucket": "fir-pam-5a64d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:488973296706:android:f11e3f72bc4578d2e8f9db",
+        "android_client_info": {
+          "package_name": "com.example.firebasepam_meet14"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmO1Eyf_MiapSWeYWyFjxWlnPVSoUERYw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
