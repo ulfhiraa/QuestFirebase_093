@@ -10,7 +10,10 @@ interface MahasiswaRepository {
 
     suspend fun insertMahasiswa(mahasiswa: Mahasiswa)
 
-    suspend fun updateMahasiswa(nim: String, mahasiswa: Mahasiswa)
+//    suspend fun updateMahasiswa(nim: String, mahasiswa: Mahasiswa)
+    suspend fun updateMahasiswa(mahasiswa: Mahasiswa)
 
-    suspend fun deleteMahasiswa(nim: String )
+//    suspend fun deleteMahasiswa(nim: String )
+    suspend fun deleteMahasiswa(mahasiswa: Mahasiswa )
 }
+
