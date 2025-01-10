@@ -62,10 +62,10 @@ class NetworkMahasiswaRepository (private val firestore: FirebaseFirestore)
         }
     }
 
-    override suspend fun deleteMahasiswa(mahasiswa: Mahasiswa) {
+    override suspend fun deleteMahasiswa(nim: String) {
         try {
             firestore.collection("Mahasiswa")
-                .document(mahasiswa.nim)
+                .document()
                 .delete()
                 .await()
         } catch (e: Exception) {
