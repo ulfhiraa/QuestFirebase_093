@@ -2,6 +2,12 @@ package com.example.firebasepam_meet14.view
 
 import com.example.firebasepam_meet14.model.Mahasiswa
 
+// data class  untuk mengelola event UI dan validasi input form Mahasiswa
+data class InsertUiState(
+    val insertUiEvent: MahasiswaEvent = MahasiswaEvent(),
+    val isEntryValid: FormErrorState = FormErrorState()
+)
+
 // data class  untuk menangani error pada form
 data class FormErrorState(
     val nim: String? = null,
