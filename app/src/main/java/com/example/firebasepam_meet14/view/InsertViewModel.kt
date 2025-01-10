@@ -2,6 +2,14 @@ package com.example.firebasepam_meet14.view
 
 import com.example.firebasepam_meet14.model.Mahasiswa
 
+// sealed class untuk mengelola status form seperti Idle, Loading, Success, dan Error
+sealed class FormState {
+    object Idle : FormState()
+    object Loading : FormState()
+    data class Success(val message: String) : FormState()
+    data class Error(val message: String) : FormState()
+}
+
 // data class  untuk mengelola event UI dan validasi input form Mahasiswa
 data class InsertUiState(
     val insertUiEvent: MahasiswaEvent = MahasiswaEvent(),
