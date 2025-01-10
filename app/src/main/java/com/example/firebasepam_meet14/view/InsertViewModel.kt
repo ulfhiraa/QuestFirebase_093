@@ -4,8 +4,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.firebasepam_meet14.model.Mahasiswa
 import com.example.firebasepam_meet14.repository.MahasiswaRepository
+import kotlinx.coroutines.launch
 
 // class untuk menangani logika form, termasuk memperbarui state, validasi input, dan mengelola status form
 class InsertViewModel ( private val mhs: MahasiswaRepository): ViewModel(){
@@ -35,6 +37,32 @@ class InsertViewModel ( private val mhs: MahasiswaRepository): ViewModel(){
         )
         uiEvent = uiEvent.copy(isEntryValid = errorState)
         return errorState.isValid()
+    }
+
+    fun insertMhs() {
+
+        if (validateFields()) {
+            viewModelScope.launch {
+                uiState = FormState.Loading
+                try {
+                    mhs.insertMahasiswa(uiEvent.insertUiEvent.toMhsModel())
+                    uiState = FormState.Success("Data berhasil disimpan")
+                } catch (e: Exception){
+                    uiState = FormState.Error("Data gagal disimpan")
+                }
+            }
+        } else {
+            uiState = FormState.Error("Data tidak valid")
+        }
+    }
+
+    fun resetForm() {
+        uiEvent = InsertUiState()
+        uiState = FormState.Idle
+    }
+
+    fun resetSnackBarMessage() {
+        uiState = FormState.Idle
     }
 }
 
