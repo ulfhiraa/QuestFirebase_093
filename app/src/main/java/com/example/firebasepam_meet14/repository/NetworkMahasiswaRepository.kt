@@ -10,6 +10,15 @@ import kotlinx.coroutines.tasks.await
 
 class NetworkMahasiswaRepository (private val firestore: FirebaseFirestore)
     : MahasiswaRepository{
+
+    override suspend fun insertMahasiswa(mahasiswa: Mahasiswa) {
+        try {
+            firestore.collection("Mahasiswa").add(mahasiswa).await()
+        } catch (e: Exception) {
+            throw Exception("Gagal menambahkan Data Mahasiswa: ${e.message}")
+        }
+    }
+
     override suspend fun getMahasiswa(): Flow<List<Mahasiswa>> = callbackFlow { // flow supaya datanya tetap urut meskipun operasinya asinkron
         val mhsCollection = firestore.collection("Mahasiswa") // nama collection, case sensitive
 //            .orderBy("nama", Query.Direction.ASCENDING) // mengurutkan nama dari dari kecil ke besar atau dari A ke Z untuk teks
@@ -43,15 +52,7 @@ class NetworkMahasiswaRepository (private val firestore: FirebaseFirestore)
         }
     }
 
-    override suspend fun insertMahasiswa(mahasiswa: Mahasiswa) {
-        try {
-            firestore.collection("Mahasiswa").add(mahasiswa).await()
-        } catch (e: Exception) {
-            throw Exception("Gagal menambahkan Data Mahasiswa: ${e.message}")
-        }
-    }
-
-    override suspend fun updateMahasiswa(nim: String, mahasiswa: Mahasiswa) {
+    override suspend fun updateMahasiswa(mahasiswa: Mahasiswa) {
         try {
             firestore.collection("Mahasiswa")
                 .document(mahasiswa.nim)
@@ -62,10 +63,10 @@ class NetworkMahasiswaRepository (private val firestore: FirebaseFirestore)
         }
     }
 
-    override suspend fun deleteMahasiswa(nim: String) {
+    override suspend fun deleteMahasiswa(mahasiswa: Mahasiswa) {
         try {
             firestore.collection("Mahasiswa")
-                .document()
+                .document(mahasiswa.nim)
                 .delete()
                 .await()
         } catch (e: Exception) {
