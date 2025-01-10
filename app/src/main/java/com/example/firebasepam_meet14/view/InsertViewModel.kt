@@ -2,6 +2,21 @@ package com.example.firebasepam_meet14.view
 
 import com.example.firebasepam_meet14.model.Mahasiswa
 
+// data class  untuk menangani error pada form
+data class FormErrorState(
+    val nim: String? = null,
+    val nama: String? = null,
+    val jenisKelamin: String? = null,
+    val alamat: String? = null,
+    val kelas: String? = null,
+    val angkatan: String? = null
+){
+    fun isValid(): Boolean {
+        return nim == null && nama == null && jenisKelamin == null &&
+                alamat == null && kelas == null && angkatan == null
+    }
+}
+
 // data class variabel yang menyimpan data input form
 data class MahasiswaEvent(
     val nim: String = "",
