@@ -9,6 +9,12 @@ data class Mahasiswa(
     val angkatan: String
 ) {
     constructor() :
-            this("", "", "", "", "", "")
+            this("",
+                "",
+                "",
+                "",
+                "",
+                ""
+            )
 }
 
