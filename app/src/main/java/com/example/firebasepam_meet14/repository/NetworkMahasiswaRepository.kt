@@ -11,7 +11,8 @@ class NetworkMahasiswaRepository (private val firestore: FirebaseFirestore)
     : MahasiswaRepository{
     override suspend fun getMahasiswa(): Flow<List<Mahasiswa>> = callbackFlow { // flow supaya datanya tetap urut meskipun operasinya asinkron
         val mhsCollection = firestore.collection("Mahasiswa") // nama collection, case sensitive
-            .orderBy("nama", Query.Direction.ASCENDING)
+//            .orderBy("nama", Query.Direction.ASCENDING) // mengurutkan nama dari dari kecil ke besar atau dari A ke Z untuk teks
+            .orderBy("nama", Query.Direction.DESCENDING) // mengurutkan nama dari dari besar ke kecil atau dari Z ke A untuk teks
             .addSnapshotListener { value, error ->  // agar datanya real time
 
                 if (value != null) {
