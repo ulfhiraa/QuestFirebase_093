@@ -12,7 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.firebasepam_meet14.ui.theme.FirebasePAM_Meet14Theme
-import com.example.firebasepam_meet14.view.HomeScreen
+import com.example.firebasepam_meet14.ui.view.HomeScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

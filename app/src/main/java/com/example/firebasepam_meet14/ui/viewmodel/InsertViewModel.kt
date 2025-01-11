@@ -1,4 +1,4 @@
-package com.example.firebasepam_meet14.view
+package com.example.firebasepam_meet14.ui.viewmodel
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

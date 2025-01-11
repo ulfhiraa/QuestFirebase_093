@@ -1,4 +1,4 @@
-package com.example.firebasepam_meet14.view
+package com.example.firebasepam_meet14.ui.view
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.CreationExtras
@@ -6,6 +6,7 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.firebasepam_meet14.MahasiswaApplications
 import com.example.firebasepam_meet14.ui.viewmodel.HomeViewModel
+import com.example.firebasepam_meet14.ui.viewmodel.InsertViewModel
 
 object PenyediaViewModel{
     val Factory = viewModelFactory {

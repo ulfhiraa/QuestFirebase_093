@@ -1,4 +1,4 @@
-package com.example.firebasepam_meet14.view
+package com.example.firebasepam_meet14.ui.view
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
