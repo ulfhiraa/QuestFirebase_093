@@ -27,26 +27,21 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.input.key.Key
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.firebasepam_meet14.model.Mahasiswa
 import com.example.firebasepam_meet14.ui.viewmodel.FormErrorState
 import com.example.firebasepam_meet14.ui.viewmodel.FormState
-import com.example.firebasepam_meet14.ui.viewmodel.HomeUiState
 import com.example.firebasepam_meet14.ui.viewmodel.InsertUiState
 import com.example.firebasepam_meet14.ui.viewmodel.InsertViewModel
 import com.example.firebasepam_meet14.ui.viewmodel.MahasiswaEvent
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import java.text.Normalizer.Form
 
 // fungsi  untuk menampilkan form input mahasiswa dengan validasi dan navigasi setelah berhasil
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun insertMhsView(
+fun InsertMhsView(
     onBack: () -> Unit,
     onNavigate: () -> Unit,
     modifier: Modifier = Modifier,
