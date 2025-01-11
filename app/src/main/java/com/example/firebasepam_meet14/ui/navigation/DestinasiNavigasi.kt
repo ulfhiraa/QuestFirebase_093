@@ -1,4 +1,4 @@
-package com.example.firebasepam_meet14.ui.navigasi
+package com.example.firebasepam_meet14.ui.navigation
 
 //untuk mendefinisikan route dan title, serta mengimplementasikan objek DestinasiHome dan DestinasiInsert dengan properti route dan title masing-masing
 interface DestinasiNavigasi {
