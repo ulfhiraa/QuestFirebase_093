@@ -61,7 +61,7 @@ fun InsertMhsView(
                 coroutineScope.launch() {
                     snackbarHostState.showSnackbar(uiState.message)
                 } // tampilkan snackbar
-                delay(700)
+                delay(900)
                 onNavigate()// navigasi langsung
                 viewModel.resetSnackBarMessage() // reset snackbar state
             }
@@ -75,6 +75,8 @@ fun InsertMhsView(
             else -> Unit
         }
     }
+
+    Spacer(modifier = Modifier.height(16.dp))
 
     Scaffold(
         modifier = modifier,
@@ -105,7 +107,7 @@ fun InsertMhsView(
                 onClick = {
                     if (viewModel.validateFields()) {
                         viewModel.insertMhs()
-                        //onNavigate()
+                        onNavigate()
                     }
                 }
             )
@@ -164,9 +166,12 @@ fun FormMahasiswa(
     val jenisKelamin = listOf("Laki-laki", "Perempuan")
     val kelas = listOf("A","B","C","D","E")
 
+    Spacer(modifier = Modifier.height(125.dp))
+
     Column (
         modifier = modifier.fillMaxWidth()
     ){
+
         // TEXTFIELD NAMA
         OutlinedTextField(
             modifier = Modifier.fillMaxWidth(),

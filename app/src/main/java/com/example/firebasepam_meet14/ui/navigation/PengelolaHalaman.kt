@@ -6,7 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.firebasepam_meet14.ui.view.HomeScreen
+import com.example.firebasepam_meet14.ui.view.HomeView
 import com.example.firebasepam_meet14.ui.view.InsertMhsView
 
 // untuk mengelola navigasi halaman
@@ -22,7 +22,7 @@ fun PengelolaHalaman(
     ){
         // HOME
         composable(DestinasiHome.route){
-            HomeScreen(
+            HomeView(
                 navigateToItemEntry = {
                     navController.navigate(DestinasiInsert.route)
                 },

@@ -37,7 +37,7 @@ import com.example.firebasepam_meet14.ui.viewmodel.HomeViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(
+fun HomeView(
     navigateToItemEntry: () -> Unit,
     modifier: Modifier = Modifier,
     onDetailClick: (String) -> Unit = {},
@@ -45,7 +45,8 @@ fun HomeScreen(
 ){
     Scaffold(
         modifier = modifier,
-        topBar = { TopAppBar(title = { Text("Home")})},
+        topBar = {
+            TopAppBar(title = { Text("Home")})},
         floatingActionButton = {
             FloatingActionButton(
                 onClick = navigateToItemEntry,
@@ -62,7 +63,8 @@ fun HomeScreen(
             retryAction = { viewModel.getMhs() }, modifier = Modifier.padding(innerPadding),
             onDetailClick = onDetailClick,
             onDeleteClick = {
-                viewModel.deleteMhs(it) // memanggil fungsi delete
+                viewModel.deleteMhs(it ) // memanggil fungsi delete
+//                viewModel.getMhs()
             }
         )
     }
@@ -111,7 +113,7 @@ fun HomeStatus(
 @Composable
 fun OnLoading( modifier: Modifier = Modifier){
     Column  (
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ){
@@ -186,7 +188,9 @@ fun MhsCard(
                     text = mahasiswa.nama,
                     style = MaterialTheme.typography.titleLarge,
                 )
+
                 Spacer(Modifier.weight(1f))
+
                 IconButton(onClick = { onDeleteClick(mahasiswa)}) {
                     Icon(
                         imageVector = Icons.Default.Delete,
@@ -199,15 +203,40 @@ fun MhsCard(
                 )
             }
 
-            Text(
-                text = mahasiswa.kelas,
-                style = MaterialTheme.typography.titleMedium
-            )
+            Row (
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ){
+                Text(
+                    text = mahasiswa.alamat,
+                    style = MaterialTheme.typography.titleMedium
+                )
 
-            Text(
-                text = mahasiswa.alamat,
-                style = MaterialTheme.typography.titleMedium
-            )
+                Spacer(Modifier.weight(1f))
+
+                Text(
+                    text = mahasiswa.angkatan,
+                    style = MaterialTheme.typography.titleMedium
+                )
+
+            }
+
+            Row (
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ){
+                Text(
+                    text = mahasiswa.jenisKelamin,
+                    style = MaterialTheme.typography.titleMedium,
+                )
+
+                Spacer(Modifier.weight(1f))
+
+                Text(
+                    text = mahasiswa.kelas,
+                    style = MaterialTheme.typography.titleMedium
+                )
+            }
         }
     }
 }

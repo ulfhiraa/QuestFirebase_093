@@ -13,7 +13,9 @@ class NetworkMahasiswaRepository (private val firestore: FirebaseFirestore)
 
     override suspend fun insertMahasiswa(mahasiswa: Mahasiswa) {
         try {
-            firestore.collection("Mahasiswa").add(mahasiswa).await()
+            firestore.collection("Mahasiswa")
+                .add(mahasiswa)
+                .await()
         } catch (e: Exception) {
             throw Exception("Gagal menambahkan Data Mahasiswa: ${e.message}")
         }
@@ -21,8 +23,8 @@ class NetworkMahasiswaRepository (private val firestore: FirebaseFirestore)
 
     override suspend fun getMahasiswa(): Flow<List<Mahasiswa>> = callbackFlow { // flow supaya datanya tetap urut meskipun operasinya asinkron
         val mhsCollection = firestore.collection("Mahasiswa") // nama collection, case sensitive
-//            .orderBy("nama", Query.Direction.ASCENDING) // mengurutkan nama dari dari kecil ke besar atau dari A ke Z untuk teks
-            .orderBy("nama", Query.Direction.DESCENDING) // mengurutkan nama dari dari besar ke kecil atau dari Z ke A untuk teks
+            .orderBy("nama", Query.Direction.ASCENDING) // mengurutkan nama dari dari kecil ke besar atau dari A ke Z untuk teks
+//            .orderBy("nama", Query.Direction.DESCENDING) // mengurutkan nama dari dari besar ke kecil atau dari Z ke A untuk teks
             .addSnapshotListener { value, error ->  // agar datanya real time
 
                 if (value != null) {
@@ -70,7 +72,7 @@ class NetworkMahasiswaRepository (private val firestore: FirebaseFirestore)
                 .delete()
                 .await()
         } catch (e: Exception) {
-            throw Exception("Gagal menghapus Data Mahasiswa: ${e.message}")
+            throw Exception("Gagal menghapus data mahasiswa : ${e.message}")
         }
     }
 }
