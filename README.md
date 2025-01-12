@@ -1,4 +1,8 @@
-<p align="center"> <img src="https://github.com/user-attachments/assets/756b6624-7f74-4c87-af0d-592c4e985944" width="60%" /> </p>
-<p align="center"> <img src="https://github.com/user-attachments/assets/8d94b241-ceb5-4472-8dcd-885568ecdb50" width="60%" /> </p>
-<p align="center"> <img src="https://github.com/user-attachments/assets/df52d184-de67-4b9d-ab32-2b3497d0deb2" width="60%" /> </p>
-<p align="center"> <img src="https://github.com/user-attachments/assets/11e145f0-d8a1-447d-b039-0d897753307a" width="60%" /> </p>
+| **Home Page** | **Validasi Insert** | **Insert Data** | **Setelah Insert** |
+|:---:|:---:|:---:|:---:|
+
+| ![a  TampilanHome](![a  TampilanHome](https://github.com/user-attachments/assets/5da927b6-dd46-414c-a636-dde017a5c097)
+) | ![b  ValidasiAdd](![b  validasiAdd](https://github.com/user-attachments/assets/2a503880-2892-4dce-b5aa-c5b9acc5fbd0)
+) | ![c  FormInsert](![c  FormTambahData](https://github.com/user-attachments/assets/c039f893-cb80-419b-b654-dacfd4d7fa3c)
+) | ![c  AfterInsert](![d  homesetelahAdd](https://github.com/user-attachments/assets/263be810-13e3-486a-a81e-e900eaa18050)
+) |
