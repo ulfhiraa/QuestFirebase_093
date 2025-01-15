@@ -63,7 +63,7 @@ fun HomeView(
             retryAction = { viewModel.getMhs() }, modifier = Modifier.padding(innerPadding),
             onDetailClick = onDetailClick,
             onDeleteClick = {
-                viewModel.deleteMhs(it ) // memanggil fungsi delete
+                viewModel.deleteMhs(it) // memanggil fungsi delete
 //                viewModel.getMhs()
             }
         )
@@ -203,40 +203,17 @@ fun MhsCard(
                 )
             }
 
-            Row (
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically
-            ){
-                Text(
-                    text = mahasiswa.alamat,
-                    style = MaterialTheme.typography.titleMedium
-                )
+            Text(
+                text = mahasiswa.alamat,
+                style = MaterialTheme.typography.titleMedium
+            )
 
-                Spacer(Modifier.weight(1f))
+            Spacer(Modifier.weight(1f))
 
-                Text(
-                    text = mahasiswa.angkatan,
-                    style = MaterialTheme.typography.titleMedium
-                )
-
-            }
-
-            Row (
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically
-            ){
-                Text(
-                    text = mahasiswa.jenisKelamin,
-                    style = MaterialTheme.typography.titleMedium,
-                )
-
-                Spacer(Modifier.weight(1f))
-
-                Text(
-                    text = mahasiswa.kelas,
-                    style = MaterialTheme.typography.titleMedium
-                )
-            }
+            Text(
+                text = mahasiswa.judulSkripsi,
+                style = MaterialTheme.typography.titleMedium
+            )
         }
     }
 }
