@@ -96,7 +96,7 @@ fun InsertMhsView(
             modifier = Modifier
                 .fillMaxSize()
                 .padding()
-                .padding(16.dp)
+                .padding(10.dp)
         ) {
             InsertBodyMhs(
                 uiState = uiEvent,
@@ -166,11 +166,10 @@ fun FormMahasiswa(
     val jenisKelamin = listOf("Laki-laki", "Perempuan")
     val kelas = listOf("A","B","C","D","E")
 
-    Spacer(modifier = Modifier.height(125.dp))
-
     Column (
         modifier = modifier.fillMaxWidth()
     ){
+        Spacer(modifier = Modifier.height(100.dp))
 
         // TEXTFIELD NAMA
         OutlinedTextField(
@@ -206,7 +205,6 @@ fun FormMahasiswa(
         )
 
         // RADIO BUTTON JENIS KELAMIN
-        Spacer(modifier = Modifier.height(16.dp))
         Text(text = "Jenis Kelamin")
         Row(
             modifier = Modifier.fillMaxWidth()
@@ -248,7 +246,6 @@ fun FormMahasiswa(
         )
 
         // RADIO BUTTON KELAS
-        Spacer(modifier = Modifier.height(16.dp))
         Text(text = "Kelas")
         Row(
             modifier = Modifier.fillMaxWidth()
@@ -295,49 +292,49 @@ fun FormMahasiswa(
             modifier = Modifier.fillMaxWidth(),
             value = mahasiswaEvent.judulSkripsi,
             onValueChange = {
-                onValueChange(mahasiswaEvent.copy(angkatan = it))
+                onValueChange(mahasiswaEvent.copy(judulSkripsi = it))
             },
-            label = { Text("Angkatan")},
-            isError = errorState.angkatan != null,
-            placeholder = { Text("Masukkan angkatan")},
+            label = { Text("Judul Skripsi")},
+            isError = errorState.judulSkripsi != null,
+            placeholder = { Text("Masukkan Judul Skripsi")},
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
         )
         Text(
-            text = errorState.angkatan ?: "",
+            text = errorState.judulSkripsi ?: "",
             color = Color.Red
         )
 
         // TEXTFIELD DOSEN PEMBIMBING 1
         OutlinedTextField(
             modifier = Modifier.fillMaxWidth(),
-            value = mahasiswaEvent.angkatan,
+            value = mahasiswaEvent.dospemSatu,
             onValueChange = {
-                onValueChange(mahasiswaEvent.copy(angkatan = it))
+                onValueChange(mahasiswaEvent.copy(dospemSatu = it))
             },
-            label = { Text("Angkatan")},
-            isError = errorState.angkatan != null,
-            placeholder = { Text("Masukkan angkatan")},
+            label = { Text("Dosen Pembimbing 1")},
+            isError = errorState.dospemSatu != null,
+            placeholder = { Text("Masukkan DosPem 1")},
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
         )
         Text(
-            text = errorState.angkatan ?: "",
+            text = errorState.dospemSatu ?: "",
             color = Color.Red
         )
 
         // TEXTFIELD DOSEN PEMBIMBING 2
         OutlinedTextField(
             modifier = Modifier.fillMaxWidth(),
-            value = mahasiswaEvent.angkatan,
+            value = mahasiswaEvent.dospemDua,
             onValueChange = {
-                onValueChange(mahasiswaEvent.copy(angkatan = it))
+                onValueChange(mahasiswaEvent.copy(dospemDua = it))
             },
-            label = { Text("Angkatan")},
+            label = { Text("Dosen Pembimbing 2")},
             isError = errorState.angkatan != null,
-            placeholder = { Text("Masukkan angkatan")},
+            placeholder = { Text("Masukkan DosPem 2")},
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
         )
         Text(
-            text = errorState.angkatan ?: "",
+            text = errorState.dospemDua ?: "",
             color = Color.Red
         )
     }
