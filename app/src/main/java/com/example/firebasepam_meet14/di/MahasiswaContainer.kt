@@ -11,6 +11,7 @@ interface AppContainer {
 
 class MahasiswaContainer: AppContainer {
     private val firestore : FirebaseFirestore = FirebaseFirestore.getInstance()
+
     override val mahasiswaRepository: MahasiswaRepository by lazy {
         NetworkMahasiswaRepository(firestore)
     }

@@ -89,12 +89,14 @@ data class FormErrorState(
     val alamat: String? = null,
     val kelas: String? = null,
     val angkatan: String? = null,
-
+    val judulSkripsi: String? = null,
+    val dospemSatu: String? = null,
+    val dospemDua: String? = null
 ){
     fun isValid(): Boolean {
         return nim == null && nama == null && jenisKelamin == null &&
                 alamat == null && kelas == null && angkatan == null &&
-
+                judulSkripsi == null && dospemSatu == null && dospemDua == null
     }
 }
 
