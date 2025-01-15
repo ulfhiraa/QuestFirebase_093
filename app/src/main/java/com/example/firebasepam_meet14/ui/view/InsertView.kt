@@ -9,7 +9,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -20,6 +22,7 @@ import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
@@ -27,6 +30,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -51,6 +55,9 @@ fun InsertMhsView(
     val uiEvent = viewModel.uiEvent // state untuk form dan validasi
     val snackbarHostState = remember { SnackbarHostState() }
     val coroutineScope = rememberCoroutineScope()
+
+    //biar bisa di scroll
+    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
 
     // observasi perubahan state untuk snackbar dan navigasi
     LaunchedEffect(uiState) {
@@ -79,11 +86,13 @@ fun InsertMhsView(
     Spacer(modifier = Modifier.height(16.dp))
 
     Scaffold(
-        modifier = modifier,
+        modifier = modifier.
+        nestedScroll(scrollBehavior.nestedScrollConnection),
         snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
         topBar = {
             TopAppBar(
                 title = { Text("Tambah Mahasiswa") },
+                scrollBehavior = scrollBehavior,
                 navigationIcon = {
                     Button(onClick = onBack) {
                         Text("Back")
@@ -109,7 +118,8 @@ fun InsertMhsView(
                         viewModel.insertMhs()
                         onNavigate()
                     }
-                }
+                },
+                modifier = Modifier.verticalScroll(rememberScrollState())
             )
         }
     }
