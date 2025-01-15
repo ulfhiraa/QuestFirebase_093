@@ -34,7 +34,9 @@ class InsertViewModel ( private val mhs: MahasiswaRepository): ViewModel(){
             alamat = if (event.alamat.isNotEmpty()) null else "Alamat tidak boleh kosong",
             kelas = if (event.kelas.isNotEmpty()) null else "Kelas tidak boleh kosong",
             angkatan = if (event.angkatan.isNotEmpty()) null else "Angkatan tidak boleh kosong",
-
+            judulSkripsi = if (event.judulSkripsi.isNotEmpty()) null else "Judul Skripsi tidak boleh kosong",
+            dospemSatu = if (event.dospemSatu.isNotEmpty()) null else "Dosen Pembimbing 1 tidak boleh kosong",
+            dospemDua = if (event.dospemDua.isNotEmpty()) null else "Dosen Pembimbing 2 tidak boleh kosong"
         )
         uiEvent = uiEvent.copy(isEntryValid = errorState)
         return errorState.isValid()
