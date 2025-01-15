@@ -119,5 +119,7 @@ fun MahasiswaEvent.toMhsModel(): Mahasiswa = Mahasiswa(
     alamat = alamat,
     kelas = kelas,
     angkatan = angkatan,
-
+    judulSkripsi = judulSkripsi,
+    dospemSatu = dospemSatu,
+    dospemDua = dospemDua
 )
